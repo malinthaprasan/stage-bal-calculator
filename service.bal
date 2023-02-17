@@ -4,14 +4,15 @@ import ballerina/http;
 # bound to port `9090`.
 service / on new http:Listener(9090) {
 
-    # A resource for generating greetings
-    # + name - the input string name
-    # + return - string name with hello message or error
-    resource function get greeting(string name) returns string|error {
-        // Send a response back to the caller.
-        if name is "" {
-            return error("name should not be empty!");
-        }
-        return "Hello, " + name;
+    resource function get add(int v1, int v2) returns int {
+        return v1 + v2;
+    }
+
+    resource function get mul(int v1, int v2) returns int {
+        return v1 * v2;
+    }
+
+    resource function get sub(int v1, int v2) returns int {
+        return v1 - v2;
     }
 }
